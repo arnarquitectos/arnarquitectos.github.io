@@ -222,21 +222,116 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contacto">
-        <div class="contact-content">
-            <h2 class="contact-title">Hablemos de tu proyecto</h2>
-            <div class="contact-info">
-                <a href="mailto:contacto@oficina-anr.com" class="contact-link">contacto@oficina-anr.com</a>
-                <a href="tel:+1234567890" class="contact-link">+123 456 7890</a>
+   <!-- ============================================
+     SECCIÓN DE CONTACTO CON FORMULARIO
+     
+     INSTRUCCIONES:
+     1. Abre index.html en GitHub
+     2. Busca: <!-- Contact Section -->
+     3. BORRA desde <!-- Contact Section --> hasta </section> (líneas 202-220 aprox)
+     4. PEGA este código en su lugar
+     ============================================ -->
+
+<!-- Contact Section -->
+<section class="contact-section" id="contacto">
+    <div class="contact-content">
+        <h2 class="contact-title">Hablemos de tu proyecto</h2>
+        <p class="contact-intro">Cuéntanos sobre tu idea y nos pondremos en contacto contigo.</p>
+        
+        <form class="contact-form" action="https://formspree.io/f/mnjbngya">
+            <!-- Nombre -->
+            <div class="form-group">
+                <label for="name" class="form-label">Nombre *</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    class="form-input" 
+                    placeholder="Tu nombre completo"
+                    required
+                >
             </div>
-            <div class="social-links">
-                <a href="#" class="social-link">Instagram</a>
-                <a href="#" class="social-link">LinkedIn</a>
-                <a href="#" class="social-link">Behance</a>
+            
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email" class="form-label">Email *</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="_replyto" 
+                    class="form-input" 
+                    placeholder="tucorreo@ejemplo.com"
+                    required
+                >
             </div>
+            
+            <!-- Teléfono (opcional) -->
+            <div class="form-group">
+                <label for="phone" class="form-label">Teléfono</label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    class="form-input" 
+                    placeholder="+56 9 1234 5678"
+                >
+            </div>
+            
+            <!-- Tipo de proyecto -->
+            <div class="form-group">
+                <label for="project-type" class="form-label">Tipo de proyecto *</label>
+                <select id="project-type" name="project-type" class="form-select" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="residencial">Residencial</option>
+                    <option value="comercial">Comercial</option>
+                    <option value="institucional">Institucional</option>
+                    <option value="interiorismo">Interiorismo</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            
+            <!-- Mensaje -->
+            <div class="form-group">
+                <label for="message" class="form-label">Mensaje *</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    class="form-textarea" 
+                    placeholder="Cuéntanos sobre tu proyecto..."
+                    rows="5"
+                    required
+                ></textarea>
+            </div>
+            
+            <!-- Campo oculto para evitar spam -->
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde el portafolio">
+            <input type="text" name="_gotcha" style="display:none">
+            
+            <!-- Botón enviar -->
+            <button type="submit" class="form-submit">
+                Enviar mensaje
+            </button>
+            
+            <!-- Mensaje de confirmación (se mostrará con JS) -->
+            <div class="form-success" style="display: none;">
+                ✓ ¡Mensaje enviado! Te contactaremos pronto.
+            </div>
+        </form>
+        
+        <!-- Información adicional -->
+        <div class="contact-info-secondary">
+            <p class="contact-direct">O escríbenos directamente a:</p>
+            <a href="mailto:contacto@oficina-anr.com" class="contact-email-link">contacto@oficina-anr.com</a>
         </div>
-    </section>
+        
+        <!-- Redes sociales -->
+        <div class="social-links">
+            <a href="#" class="social-link" target="_blank">Instagram</a>
+            <a href="#" class="social-link" target="_blank">LinkedIn</a>
+            <a href="#" class="social-link" target="_blank">Behance</a>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="main-footer">
