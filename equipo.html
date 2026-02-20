@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo — ANR Arquitectos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg:     #F5F4F0;
+            --color-text:   #0D0D0D;
+            --color-muted:  #888880;
+            --color-line:   #D8D7D2;
+            --color-accent: #FF3D00;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body:    'Work Sans', sans-serif;
+            --max-w:        1200px;
+            --gutter:       clamp(1.5rem, 4vw, 5rem);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); font-weight: 300; -webkit-font-smoothing: antialiased; line-height: 1.8; }
+        a { color: inherit; text-decoration: none; }
+        
+        .project-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--gutter); background: rgba(245,244,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-line); }
+        .header-logo { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 0.15em; color: var(--color-text); text-decoration: none; transition: color 0.2s; }
+        .header-logo:hover { color: var(--color-accent); }
+        .header-back { display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); transition: color 0.2s; }
+        .header-back:hover { color: var(--color-text); }
+        .back-arrow { width: 24px; height: 1px; background: currentColor; position: relative; transition: width 0.3s; }
+        .back-arrow::before { content: ''; position: absolute; left: 0; top: -3px; width: 7px; height: 7px; border-left: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); }
+        .header-back:hover .back-arrow { width: 36px; }
+        
+        .team-container { max-width: var(--max-w); margin: 0 auto; padding: clamp(5rem,10vw,8rem) var(--gutter) clamp(4rem,8vw,6rem); }
+        
+        .team-header { margin-bottom: clamp(4rem,8vw,6rem); border-bottom: 1px solid var(--color-line); padding-bottom: 3rem; }
+        .team-title { font-family: var(--font-display); font-size: clamp(4rem,10vw,8rem); line-height: 0.9; letter-spacing: 0.02em; margin-bottom: 1.5rem; }
+        .team-subtitle { font-size: clamp(1.2rem,2.5vw,1.8rem); color: var(--color-muted); font-weight: 300; letter-spacing: 0.02em; line-height: 1.5; }
+        
+        .team-member { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start; margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--color-line); }
+        .team-member:last-child { border-bottom: none; margin-bottom: 0; }
+        
+        .member-photo { aspect-ratio: 3/4; background: var(--color-line); overflow: hidden; position: relative; }
+        .member-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--color-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+        
+        .member-info { padding-top: 1rem; }
+        .member-name { font-family: var(--font-display); font-size: clamp(2.5rem,5vw,4rem); line-height: 1; letter-spacing: 0.03em; margin-bottom: 0.5rem; }
+        .member-role { font-size: 0.85rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 2rem; }
+        .member-bio { font-size: 1.05rem; line-height: 1.8; font-weight: 300; }
+        .member-bio p { margin-bottom: 1rem; }
+        .member-bio p:last-child { margin-bottom: 0; }
+        
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        
+        @media (max-width: 900px) {
+            .team-member { grid-template-columns: 1fr; gap: 2rem; }
+            .member-photo { max-width: 350px; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+    <header class="project-header">
+        <a href="index.html" class="header-logo">ANR</a>
+        <a href="nosotros.html" class="header-back">
+            <span class="back-arrow"></span>
+            <span>Volver</span>
+        </a>
+    </header>
+
+    <main class="team-container">
+        
+        <div class="team-header reveal">
+            <h1 class="team-title">Nuestro<br>Equipo</h1>
+            <p class="team-subtitle">Las personas detrás de cada proyecto</p>
+        </div>
+
+        <!-- Nicolás Araya -->
+        <div class="team-member reveal">
+            <div class="member-photo">
+                <img src="images/equipo1.jpg" alt="Nicolás Araya">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Nicolás<br>Araya</h2>
+                <p class="member-role">Arquitecto / Socio fundador</p>
+                <div class="member-bio">
+                    <p>Arquitecto titulado con distinción máxima de la Universidad Diego Portales, con experiencia en proyectos de remodelación de oficinas, gestión de presupuesto y cotizaciones, además de supervisión de obra.</p>
+                    <p>Desde 2022 ha estado a cargo de la remodelación de las sedes del Instituto Nacional de Derechos Humanos, coordinando equipos multidisciplinarios y gestionando todos los aspectos técnicos y administrativos de cada proyecto.</p>
+                    <p>Maneja herramientas como Revit, Rhino y otros software especializados. Posee nivel avanzado de inglés e intermedio de alemán. Sus áreas de interés incluyen tecnologías para el paisajismo y diseño paramétrico.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Miembro 2 -->
+        <div class="team-member reveal">
+            <div class="member-photo">
+                <div class="photo-placeholder">Foto por agregar</div>
+                <!-- <img src="images/team-member-2.jpg" alt="Nombre del arquitecto"> -->
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Nombre Apellido</h2>
+                <p class="member-role">Arquitecto / Socio fundador</p>
+                <div class="member-bio">
+                    <p>Arquitecto titulado de [Universidad], especializado en [área de especialización].</p>
+                    <p>Con experiencia en [tipo de proyectos], ha liderado [proyectos o logros destacados].</p>
+                    <p>Descripción adicional sobre trayectoria, áreas de interés o enfoque de trabajo.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
