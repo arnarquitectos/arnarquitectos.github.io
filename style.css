@@ -219,9 +219,10 @@ a {
 }
 
 .hero-content {
+    margin-top: 1.8rem; /* espacio extra para separar título del header */
     text-align: center;
     max-width: 1200px;
-    margin-bottom: 100px; /* Espacio para el indicador de scroll */
+    margin-bottom: 100px; /* mantiene espacio para “Explora” */
 }
 
 .hero-title {
