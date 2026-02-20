@@ -43,20 +43,23 @@
     background:
         linear-gradient(
             to right,
-            rgba(245,244,240,0.92) 0%,
-            rgba(245,244,240,0.80) 18%,
-            rgba(245,244,240,0.55) 38%,
-            rgba(245,244,240,0.25) 60%,
-            rgba(245,244,240,0.08) 78%,
-            rgba(245,244,240,0.00) 100%
+            rgba(245,244,240,0.85) 0%,
+            rgba(245,244,240,0.65) 20%,
+            rgba(245,244,240,0.35) 40%,
+            rgba(245,244,240,0.15) 60%,
+            rgba(245,244,240,0.05) 75%,
+            rgba(245,244,240,0.00) 90%
         ),
-        url("img/n1.jpg");
+        url("images/n1.jpg");
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
+    /* efecto parallax suave (solo desktop) */
     background-attachment: fixed;
+
+    /* look editorial leve */
     filter: contrast(1.05) saturate(0.9);
 
     z-index: -1;
