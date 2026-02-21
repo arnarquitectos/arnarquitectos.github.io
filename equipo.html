@@ -54,6 +54,23 @@
         .member-bio p { margin-bottom: 1rem; }
         .member-bio p:last-child { margin-bottom: 0; }
         
+        /* Skeleton loader animation */
+        .skeleton-loading {
+            background: linear-gradient(
+                90deg,
+                var(--color-line) 0%,
+                #E0DFDA 50%,
+                var(--color-line) 100%
+            );
+            background-size: 200% 100%;
+            animation: skeleton-pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes skeleton-pulse {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
         .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
         
@@ -88,27 +105,30 @@
                 <h2 class="member-name">Nicolás<br>Araya</h2>
                 <p class="member-role">Arquitecto / Socio fundador</p>
                 <div class="member-bio">
-                    <p>Arquitecto titulado con distinción máxima de la Universidad Diego Portales, ha desarrollado proyectos residenciales y comerciales, además de haber colaborado en proyectos de diversas escalas. Su labor incluye la proyección arquitectónica, el prototipado de artefactos y mobiliario, además de supervisión de obra.</p>
-                    <p>Desde 2022 ha estado a cargo de la remodelación de las sedes del Instituto Nacional de Derechos Humanos, coordinando equipos multidisciplinarios y gestionando todos los aspectos técnicos y administrativos de cada proyecto. Su enfoque ha sido el trabajar con los más diversos actores desde un plano tecnocrático, ayudando a definir qué estrategias pueden satisfacer de mejor manera las necesidades del mandante.</p>
-                    
+                    <p>Arquitecto titulado con distinción máxima de la Universidad Diego Portales, con experiencia en proyectos de remodelación de oficinas, gestión de presupuesto y cotizaciones, además de supervisión de obra.</p>
+                    <p>Desde 2022 ha estado a cargo de la remodelación de las sedes del Instituto Nacional de Derechos Humanos, coordinando equipos multidisciplinarios y gestionando todos los aspectos técnicos y administrativos de cada proyecto.</p>
+                    <p>Maneja herramientas como Revit, Rhino y otros software especializados. Posee nivel avanzado de inglés e intermedio de alemán. Sus áreas de interés incluyen tecnologías para el paisajismo y diseño paramétrico.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Miembro 2 -->
+        <!-- Miembro 2 - Próximamente -->
         <div class="team-member reveal">
-            <div class="member-photo">
-                <div class="photo-placeholder">Foto por agregar</div>
-                <!-- <img src="images/team-member-2.jpg" alt="Nombre del arquitecto"> -->
+            <div class="member-photo skeleton-loading">
+                <div class="photo-placeholder"></div>
             </div>
             <div class="member-info">
-                <h2 class="member-name">Nombre Apellido</h2>
-                <p class="member-role">Arquitecto / Socio fundador</p>
-                <div class="member-bio">
-                    <p>Arquitecto titulado de [Universidad], especializado en [área de especialización].</p>
-                    <p>Con experiencia en [tipo de proyectos], ha liderado [proyectos o logros destacados].</p>
-                    <p>Descripción adicional sobre trayectoria, áreas de interés o enfoque de trabajo.</p>
-                </div>
+                <!-- Información por agregar -->
+            </div>
+        </div>
+
+        <!-- Miembro 3 - Próximamente -->
+        <div class="team-member reveal">
+            <div class="member-photo skeleton-loading">
+                <div class="photo-placeholder"></div>
+            </div>
+            <div class="member-info">
+                <!-- Sin información por ahora -->
             </div>
         </div>
 
