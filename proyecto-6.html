@@ -25,7 +25,8 @@
         body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); font-weight: 300; -webkit-font-smoothing: antialiased; }
         a { color: inherit; text-decoration: none; }
         .project-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--gutter); background: rgba(245,244,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-line); }
-        .header-logo { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 0.15em; }
+        .header-logo { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 0.15em; color: var(--color-text); text-decoration: none; transition: color 0.2s; }
+        .header-logo:hover { color: var(--color-accent); }
         .header-back { display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); transition: color 0.2s; }
         .header-back:hover { color: var(--color-text); }
         .back-arrow { width: 24px; height: 1px; background: currentColor; position: relative; transition: width 0.3s; }
@@ -56,7 +57,6 @@
         .gallery-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.4,0,0.2,1); display: block; }
         .gallery-img-wrapper:hover img { transform: scale(1.04); }
         .img-caption { margin-top: 0.6rem; font-size: 0.75rem; color: var(--color-muted); letter-spacing: 0.05em; }
-        .gallery-secondary-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
         .project-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--color-line); margin-top: clamp(3rem,6vw,6rem); }
         .project-nav-item { padding: 2.5rem 0; transition: color 0.2s; }
         .project-nav-item:last-child { border-left: 1px solid var(--color-line); padding-left: 2.5rem; }
@@ -73,7 +73,6 @@
         }
         @media (max-width: 600px) {
             .project-hero { height: 60vh; }
-            .gallery-secondary-row { grid-template-columns: 1fr; }
             .project-nav { grid-template-columns: 1fr; }
             .project-nav-item:last-child { border-left: none; border-top: 1px solid var(--color-line); padding-left: 0; }
         }
@@ -81,62 +80,72 @@
 </head>
 <body>
     <header class="project-header">
-        <div class="header-logo">ANR</div>
+        <a href="index.html" class="header-logo">ANR</a>
         <a href="index.html" class="header-back">
             <span class="back-arrow"></span>
             <span>Volver</span>
         </a>
     </header>
+
     <section class="project-hero">
-        <img src="images/TO LARGE TO BUILD CONTEST.png" alt="Too Large to Build">
+        <img src="images/too1.jpg" alt="Too Large to Build">
         <div class="project-number">06</div>
     </section>
+
     <main class="project-body">
+
+        <!-- Título + Ficha técnica -->
         <div class="project-top reveal">
             <div class="project-title-block">
-                <div class="project-index">Proyecto 06</div>
+                <div class="project-index">Proyecto</div>
                 <h1 class="project-title">Too Large<br>to Build</h1>
                 <span class="project-category-tag">Concurso</span>
             </div>
             <div class="project-specs">
-                <div class="spec-item"><div class="spec-label">Año</div><div class="spec-value">—</div></div>
-                <div class="spec-item"><div class="spec-label">Superficie</div><div class="spec-value">—</div></div>
-                <div class="spec-item"><div class="spec-label">Ubicación</div><div class="spec-value">Concurso Internacional</div></div>
-                <div class="spec-item"><div class="spec-label">Estado</div><div class="spec-value">Concurso</div></div>
+                <div class="spec-item"><div class="spec-label">Año</div><div class="spec-value">2024</div></div>
+                <div class="spec-item"><div class="spec-label">Superficie</div><div class="spec-value">Indefinida</div></div>
+                <div class="spec-item"><div class="spec-label">Ubicación</div><div class="spec-value">Océano Pacífico</div></div>
+                <div class="spec-item"><div class="spec-label">Estado</div><div class="spec-value">Publicado</div></div>
                 <div class="spec-item"><div class="spec-label">Mandante</div><div class="spec-value">—</div></div>
             </div>
         </div>
+
+        <!-- Descripción -->
         <div class="project-description reveal">
             <div class="description-label">Descripción</div>
             <p class="description-text">Descripción del proyecto por completar.</p>
         </div>
+
+        <!-- Galería -->
         <div class="project-gallery reveal">
             <div class="gallery-label">Imágenes</div>
-            <div class="gallery-img-wrapper" style="aspect-ratio:16/7;">
-                <img src="images/TO LARGE TO BUILD CONTEST.png" alt="Too Large to Build — Vista general">
+
+            <!-- Primera imagen grande -->
+            <div style="margin-bottom: 1.5rem;">
+                <div class="gallery-img-wrapper" style="aspect-ratio: 16/9;">
+                    <img src="images/too2.jpg" alt="Too Large to Build - Vista 1">
+                </div>
+                <p class="img-caption"></p>
             </div>
-            <p class="img-caption">Vista general</p>
-            <div class="gallery-secondary-row">
-                <div>
-                    <div class="gallery-img-wrapper" style="aspect-ratio:4/3;">
-                        <img src="images/TO LARGE TO BUILD CONTEST.png" alt="Too Large to Build — Detalle 1">
-                    </div>
-                    <p class="img-caption">Por completar</p>
+
+            <!-- Segunda imagen grande -->
+            <div style="margin-bottom: 1.5rem;">
+                <div class="gallery-img-wrapper" style="aspect-ratio: 16/9;">
+                    <img src="images/too3.jpg" alt="Too Large to Build - Vista 2">
                 </div>
-                <div>
-                    <div class="gallery-img-wrapper" style="aspect-ratio:4/3;">
-                        <img src="images/TO LARGE TO BUILD CONTEST.png" alt="Too Large to Build — Detalle 2">
-                    </div>
-                    <p class="img-caption">Por completar</p>
-                </div>
+                <p class="img-caption"></p>
             </div>
-            <div style="margin-top:1.5rem;">
-                <div class="gallery-img-wrapper" style="aspect-ratio:21/9;">
-                    <img src="images/TO LARGE TO BUILD CONTEST.png" alt="Too Large to Build — Vista panorámica">
+
+            <!-- Tercera imagen grande -->
+            <div>
+                <div class="gallery-img-wrapper" style="aspect-ratio: 16/9;">
+                    <img src="images/too4.jpg" alt="Too Large to Build - Vista 3">
                 </div>
-                <p class="img-caption">Vista panorámica</p>
+                <p class="img-caption"></p>
             </div>
         </div>
+
+        <!-- Navegación entre proyectos -->
         <nav class="project-nav reveal">
             <a class="project-nav-item" href="proyecto-5.html">
                 <div class="nav-direction">← Anterior</div>
@@ -147,7 +156,9 @@
                 <div class="nav-project-name">Casa de la Memoria</div>
             </a>
         </nav>
+
     </main>
+
     <script>
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
