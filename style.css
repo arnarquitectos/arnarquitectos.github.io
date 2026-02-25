@@ -904,3 +904,385 @@ a {
         color: black;
     }
 }
+
+
+/* ============================================
+   Hero — Ajustes para nuevo titular
+   ============================================ */
+
+/* El subtítulo ahora es más largo, reducimos un poco en móvil */
+.hero-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
+}
+
+/* Descriptor secundario debajo del subtítulo */
+.hero-descriptor {
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    color: var(--color-text-muted);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: calc(var(--space-sm) * -0.5);
+    animation: fadeIn 1s var(--transition-base) 0.7s backwards;
+}
+
+
+/* ============================================
+   Recursos Section — Slider horizontal
+   ============================================ */
+.recursos-section {
+    padding: var(--space-xl) var(--space-md);
+    border-top: 1px solid var(--color-border);
+    background:
+        linear-gradient(180deg, rgba(255,61,0,0.03) 0%, transparent 60%);
+    overflow: hidden;
+}
+
+/* Cabecera de la sección */
+.recursos-header {
+    max-width: var(--max-width);
+    margin: 0 auto var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--space-md);
+}
+
+.recursos-header-left {
+    flex: 1;
+}
+
+.recursos-kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.6rem;
+}
+
+.recursos-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 0.8rem;
+}
+
+.recursos-intro {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 480px;
+}
+
+/* Flechas de navegación */
+.recursos-nav {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    padding-bottom: 0.3rem;
+}
+
+.rec-arrow {
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: all var(--transition-fast);
+    border-radius: 2px;
+}
+
+.rec-arrow:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* Track wrapper — permite overflow visible lateral */
+.recursos-track-wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Track deslizable */
+.recursos-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    padding-bottom: 0.5rem;
+    cursor: grab;
+}
+
+.recursos-track:active {
+    cursor: grabbing;
+}
+
+.recursos-track::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Tarjetas de recursos */
+.rec-card {
+    flex: 0 0 360px;
+    min-height: 320px;
+    background: #141414;
+    border: 1px solid var(--color-border);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    scroll-snap-align: start;
+    transition: border-color var(--transition-base), transform var(--transition-base);
+    border-radius: 2px;
+}
+
+.rec-card--active {
+    border-color: rgba(255, 61, 0, 0.4);
+}
+
+.rec-card--active:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+}
+
+.rec-card--soon {
+    opacity: 0.55;
+}
+
+/* Cabecera de tarjeta */
+.rec-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Tags de categoría */
+.rec-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+}
+
+.rec-tag--residencial {
+    background: rgba(255, 61, 0, 0.12);
+    color: var(--color-accent);
+    border: 1px solid rgba(255, 61, 0, 0.25);
+}
+
+.rec-tag--comercial {
+    background: rgba(160, 160, 160, 0.1);
+    color: var(--color-text-muted);
+    border: 1px solid rgba(160, 160, 160, 0.2);
+}
+
+.rec-tag--arq {
+    background: rgba(160, 160, 160, 0.1);
+    color: var(--color-text-muted);
+    border: 1px solid rgba(160, 160, 160, 0.2);
+}
+
+.rec-free {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #43e97b;
+}
+
+.rec-soon-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+}
+
+/* Contenido de tarjeta */
+.rec-card-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    color: var(--color-text);
+}
+
+.rec-card-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+    flex: 1;
+}
+
+/* Botones de tarjeta */
+.rec-btn {
+    display: inline-block;
+    margin-top: auto;
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-bg);
+    background: var(--color-accent);
+    border: 2px solid var(--color-accent);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+}
+
+.rec-btn:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+}
+
+.rec-btn--disabled {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    cursor: default;
+    font-size: 0.85rem;
+    opacity: 0.5;
+}
+
+.rec-btn--disabled:hover {
+    background: transparent;
+    border-color: var(--color-border);
+}
+
+
+/* ============================================
+   Modal de descarga
+   ============================================ */
+.rec-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    z-index: 2000;
+    display: grid;
+    place-items: center;
+    padding: var(--space-md);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+}
+
+.rec-modal-overlay.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.rec-modal {
+    background: #181818;
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    padding: 2.5rem;
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    border-radius: 2px;
+    transform: translateY(20px);
+    transition: transform var(--transition-base);
+}
+
+.rec-modal-overlay.is-open .rec-modal {
+    transform: translateY(0);
+}
+
+.rec-modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color var(--transition-fast);
+}
+
+.rec-modal-close:hover {
+    color: var(--color-text);
+}
+
+.rec-modal-kicker {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.6rem;
+}
+
+.rec-modal-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+}
+
+.rec-modal-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.rec-modal-legal {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    opacity: 0.5;
+    text-align: center;
+    margin-top: 0.75rem;
+}
+
+.brevo-form-placeholder .form-group {
+    margin-bottom: 1rem;
+}
+
+
+/* ============================================
+   Responsive — Recursos
+   ============================================ */
+@media (max-width: 768px) {
+    .recursos-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .recursos-nav {
+        align-self: flex-end;
+    }
+
+    .rec-card {
+        flex: 0 0 300px;
+        min-height: auto;
+        padding: 1.5rem;
+    }
+
+    .rec-modal {
+        padding: 1.75rem;
+    }
+}
