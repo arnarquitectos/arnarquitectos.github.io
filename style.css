@@ -12,8 +12,8 @@
     --color-bg: #0D0D0D;
     --color-text: #FFFFFF;
     --color-text-muted: #A0A0A0;
-    --color-accent: #FF3D00;
-    --color-accent-hover: #FF6E40;
+    --color-accent: #2A5F7A;
+    --color-accent-hover: #3A7A9A;
     --color-border: #2A2A2A;
     
     /* Typography */
@@ -28,7 +28,7 @@
     --space-xl: 6rem;
     
     /* Layout */
-    --header-height: 90px;
+    --header-height: 80px;
     --max-width: 1600px;
     
     /* Transitions */
@@ -219,10 +219,9 @@ a {
 }
 
 .hero-content {
-    margin-top: 1.8rem; /* espacio extra para separar título del header */
     text-align: center;
     max-width: 1200px;
-    margin-bottom: 100px; /* mantiene espacio para “Explora” */
+    margin-bottom: 100px; /* Espacio para el indicador de scroll */
 }
 
 .hero-title {
