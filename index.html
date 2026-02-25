@@ -16,6 +16,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── Modal: ajustes para que el iframe Brevo se vea completo ── */
+        .rec-modal {
+            max-width: 580px;
+            width: 95vw;
+            padding: 1.5rem 1.5rem 1rem;
+            max-height: 92vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .rec-modal-header {
+            margin-bottom: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .rec-modal iframe {
+            width: 100% !important;
+            max-width: 100% !important;
+            border: none;
+            display: block;
+            /* altura generosa para que Brevo muestre nombre + email + botón sin cortar */
+            height: 370px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 600px) {
+            .rec-modal iframe { height: 400px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -126,18 +158,23 @@
             </div><!-- /recursos-track -->
         </div><!-- /recursos-track-wrapper -->
 
-        <!-- Formulario Brevo embebido (activado al hacer clic en la tarjeta 1) -->
+        <!-- Modal con formulario Brevo -->
         <div class="rec-modal-overlay" id="descarga-modal">
             <div class="rec-modal">
                 <button class="rec-modal-close" id="close-modal" aria-label="Cerrar">&#10005;</button>
-                <span class="rec-modal-kicker">Descarga gratuita</span>
-                <h3 class="rec-modal-title">¿Estás listo para construir tu segunda vivienda?</h3>
-                <p class="rec-modal-desc">
-                    Deja tu nombre y correo y te lo enviamos al instante.
-                </p>
-                <!-- ─── REEMPLAZA ESTE BLOQUE CON EL CÓDIGO DE TU FORMULARIO BREVO ─── -->
-              <iframe width="540" height="305" src="https://394e2348.sibforms.com/serve/MUIFAPrxysfDdlU2X0ut4vxsNrT_fOKySx4-VvyBDDUKO9xETNun2oRm-xwMaiaa5ytm58KEcG_W1Z3z3hkvDML2P4Z6UFZnLAlw_4qEXZPH3k1z-uWKHBr8KN3RTbSKzzfX6LP8iY784zt_-C6tfMoOSMr_lbDJ-RAqHWcGbkjvyciLs6Q2_VbiBMWoWVUV6hB6WNT9sS_QcNLidA==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
-                <!-- ─── FIN BLOQUE BREVO ─── -->
+                <div class="rec-modal-header">
+                    <span class="rec-modal-kicker">Descarga gratuita</span>
+                    <h3 class="rec-modal-title">¿Estás listo para construir tu segunda vivienda?</h3>
+                    <p class="rec-modal-desc">Deja tu nombre y correo y te lo enviamos al instante.</p>
+                </div>
+                <!-- Formulario Brevo -->
+                <iframe
+                    src="https://394e2348.sibforms.com/serve/MUIFAPrxysfDdlU2X0ut4vxsNrT_fOKySx4-VvyBDDUKO9xETNun2oRm-xwMaiaa5ytm58KEcG_W1Z3z3hkvDML2P4Z6UFZnLAlw_4qEXZPH3k1z-uWKHBr8KN3RTbSKzzfX6LP8iY784zt_-C6tfMoOSMr_lbDJ-RAqHWcGbkjvyciLs6Q2_VbiBMWoWVUV6hB6WNT9sS_QcNLidA=="
+                    frameborder="0"
+                    scrolling="auto"
+                    allowfullscreen>
+                </iframe>
+                <p class="rec-modal-legal">Sin spam. Te puedes dar de baja cuando quieras.</p>
             </div>
         </div>
 
@@ -354,12 +391,6 @@
                     ✓ ¡Mensaje enviado! Te contactaremos pronto.
                 </div>
             </form>
-
-            <div class="social-links">
-                <a href="#" class="social-link" target="_blank">Instagram</a>
-                <a href="#" class="social-link" target="_blank">LinkedIn</a>
-                <a href="#" class="social-link" target="_blank">Behance</a>
-            </div>
         </div>
     </section>
 
@@ -381,8 +412,7 @@
         const getCardWidth = () => {
             const card = track.querySelector('.rec-card');
             if (!card) return 380;
-            const style = getComputedStyle(track);
-            const gap   = parseFloat(style.gap) || 24;
+            const gap = parseFloat(getComputedStyle(track).gap) || 24;
             return card.offsetWidth + gap;
         };
 
@@ -393,7 +423,6 @@
             track.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
         });
 
-        // Actualizar estado de flechas
         const updateArrows = () => {
             btnPrev.style.opacity = track.scrollLeft <= 10 ? '0.3' : '1';
             const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 10;
